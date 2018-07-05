@@ -1,0 +1,21 @@
+development: &development
+  protocol: 'http'
+  host: localhost
+  port: 5984
+  prefix: dde
+  suffix: production_mtema_17
+  username: root
+  password: v1nt4ge.
+
+test:
+  <<: *development
+  suffix: test
+
+production:
+  protocol: 'https'
+  host: localhost
+  port: 5984
+  prefix: evr_stats_konsole
+  suffix: production
+  username: root
+  password: 123

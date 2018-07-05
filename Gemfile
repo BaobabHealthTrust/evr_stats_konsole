@@ -8,6 +8,12 @@ end
 # gem for the Gentelella rails Dashboard
 gem 'gentelella-rails'
 
+# for rest
+gem 'rest-client', '2.0.1' #'1.6.3'
+
+# add couchrest
+gem 'couchrest_model'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use mysql as the database for Active Record

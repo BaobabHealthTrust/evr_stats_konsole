@@ -12,6 +12,7 @@ class DashboardController < ApplicationController
     start_date = filter_date.beginning_of_month.strftime("%Y-%m-%d")
     end_date = filter_date.end_of_month.strftime("%Y-%m-%d")
 
+    #========= outcome =====================================================================================
     outcome = Outcome.by_outcome_date.all
     
     month_outcome = []
@@ -24,5 +25,10 @@ class DashboardController < ApplicationController
 
     @month_deaths = month_outcome.count
     @total_died = outcome.count
+    #========================================================================================================
+
+    #========== births ==================================================================================
+    
+    #========================================================================================================
   end
 end

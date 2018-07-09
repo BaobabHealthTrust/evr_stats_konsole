@@ -11,6 +11,9 @@ gem 'gentelella-rails'
 # for rest
 gem 'rest-client', '2.0.1' #'1.6.3'
 
+# for faster webserving
+gem 'passenger'
+
 # add couchrest
 gem 'couchrest_model'
 

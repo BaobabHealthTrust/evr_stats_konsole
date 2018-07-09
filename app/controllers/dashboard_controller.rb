@@ -16,7 +16,7 @@ class DashboardController < ApplicationController
     start_date = filter_date.beginning_of_month.strftime("%Y-%m-%d")
     end_date = filter_date.end_of_month.strftime("%Y-%m-%d")
 
-    #========= outcome =====================================================================================
+    #========= deaths =====================================================================================
     outcome = Outcome.by_outcome_date.all
     
     month_outcome = []
@@ -49,12 +49,28 @@ class DashboardController < ApplicationController
     end
 
     @month_births = ta_month_births.count
-		#startdate = params[:start_date].to_date.strftime("%Y/#{m}/%d").gsub(/\s+/, '')
-		#enddate = params[:end_date].to_date.strftime("%Y/%#{m}/%d").gsub(/\s+/, '')
-    #people = Person.by_birthdate.startkey("#{start_birthdate}").endkey("#{end_birthdate}").all.each
-    #raise people.inspect
-		#render :text => people.to_json and return
     #========================================================================================================
+
+    #=========== news read =======================================================================================
+
+    #=============================================================================================================
+
+    #=========== new registrations ===============================================================================
+    ta_month_registrations = []
+    
+    (total_ta_people || []).each do |ta_person|
+      begin 
+        if ta_person[:created_at].to_date.strftime("%Y-%m-%d") >= start_date && ta_person[:created_at].to_date.strftime("%Y-%m-%d") <= end_date
+          ta_month_registrations << ta_person
+        end
+      rescue
+        next
+      end
+    end
+
+    @month_registrations = ta_month_registrations.count
+    raise ta_month_registrations.inspect
+    #=============================================================================================================
 
     #=========== population ======================================================================================
     @total_population = total_ta_people.count

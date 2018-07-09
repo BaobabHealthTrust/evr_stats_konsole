@@ -256,8 +256,8 @@
     	</div>
     </div>
 
-    <!--
-    <div class="sk-cube-grid spinner">
+    
+    <!-- <div class="sk-cube-grid spinner">
         <div class="sk-cube sk-cube1"></div>
         <div class="sk-cube sk-cube2"></div>
         <div class="sk-cube sk-cube3"></div>
@@ -267,8 +267,7 @@
         <div class="sk-cube sk-cube7"></div>
         <div class="sk-cube sk-cube8"></div>
         <div class="sk-cube sk-cube9"></div>
-    </div>
-    -->
+    </div> -->
     
     <%= yield %>
 
@@ -310,7 +309,15 @@
                 timer: 4000
             });
 
-    	});
+        });
+        
+        $(document).on("page:fetch", function(){
+            $(".spinner").show();
+        });
+
+        $(document).on("page:receive", function(){
+            $(".spinner").hide();
+        });
 	</script>
 
 </html>

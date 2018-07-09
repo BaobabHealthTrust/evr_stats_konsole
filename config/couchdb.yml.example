@@ -4,8 +4,8 @@ development: &development
   port: 5984
   prefix: dde
   suffix: production_mtema_17
-  username: root
-  password: v1nt4ge.
+  username: 
+  password: 
 
 test:
   <<: *development

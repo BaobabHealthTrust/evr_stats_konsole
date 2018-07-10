@@ -29,6 +29,9 @@
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag 'bootstrap/themify-icons', rel: 'stylesheet' %>
 
+    <!-- For datepicker -->
+    <%= stylesheet_link_tag 'datepicker', rel: 'stylesheet' %>
+
     <!-- Style for Chartist legends -->
     <style>
       .ct-legend {
@@ -68,6 +71,7 @@
         }
     }
 }
+
 .sk-cube-grid {
   width: 40px;
   height: 40px;
@@ -129,66 +133,9 @@
             transform: scale3D(0, 0, 1);
   } 
 }
-.sk-cube-grid {
-  width: 40px;
-  height: 40px;
-  margin: 100px auto;
-}
 
-.sk-cube-grid .sk-cube {
-  width: 33%;
-  height: 33%;
-  background-color: #333;
-  float: left;
-  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
-          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
-}
-.sk-cube-grid .sk-cube1 {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s; }
-.sk-cube-grid .sk-cube2 {
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s; }
-.sk-cube-grid .sk-cube3 {
-  -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s; }
-.sk-cube-grid .sk-cube4 {
-  -webkit-animation-delay: 0.1s;
-          animation-delay: 0.1s; }
-.sk-cube-grid .sk-cube5 {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s; }
-.sk-cube-grid .sk-cube6 {
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s; }
-.sk-cube-grid .sk-cube7 {
-  -webkit-animation-delay: 0s;
-          animation-delay: 0s; }
-.sk-cube-grid .sk-cube8 {
-  -webkit-animation-delay: 0.1s;
-          animation-delay: 0.1s; }
-.sk-cube-grid .sk-cube9 {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s; }
-
-@-webkit-keyframes sk-cubeGridScaleDelay {
-  0%, 70%, 100% {
-    -webkit-transform: scale3D(1, 1, 1);
-            transform: scale3D(1, 1, 1);
-  } 35% {
-    -webkit-transform: scale3D(0, 0, 1);
-            transform: scale3D(0, 0, 1); 
-  }
-}
-
-@keyframes sk-cubeGridScaleDelay {
-  0%, 70%, 100% {
-    -webkit-transform: scale3D(1, 1, 1);
-            transform: scale3D(1, 1, 1);
-  } 35% {
-    -webkit-transform: scale3D(0, 0, 1);
-            transform: scale3D(0, 0, 1);
-  } 
+.ui-datepicker-calendar {
+    display: none;
 }
     </style>
 </head>
@@ -216,13 +163,13 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <!-- <li>
-                    <a href="user.html">
-                        <i class="ti-user"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
                 <li>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="width: 90% !important; left: 5%;">
+                        <i class="ti-filter"></i>
+                        <p>Filter Dates</p>
+                    </button>
+                </li>
+                <!-- <li>
                     <a href="table.html">
                         <i class="ti-view-list-alt"></i>
                         <p>Table List</p>
@@ -256,7 +203,6 @@
     	</div>
     </div>
 
-    
     <!-- <div class="sk-cube-grid spinner">
         <div class="sk-cube sk-cube1"></div>
         <div class="sk-cube sk-cube2"></div>
@@ -271,8 +217,31 @@
     
     <%= yield %>
 
-</div>
+    <!-- Calendar Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Select MONTH and YEAR to filter data for:</h4>
+          </div>
+          <div class="modal-body">
+            <div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+                <input class="span2" size="16" type="text" value="12-02-2012">
+                <span class="add-on"><i class="icon-th"></i></span>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
 
+</div>
 
 </body>
 
@@ -280,11 +249,14 @@
     <%= javascript_include_tag 'bootstrap/jquery-1.10.2', type: 'text/javascript' %>
     <%= javascript_include_tag 'bootstrap/bootstrap.min', type: 'text/javascript' %>
 
-  <!--  Checkbox, Radio & Switch Plugins -->
-  <%= javascript_include_tag 'bootstrap/bootstrap-checkbox-radio' %>
+    <!-- DatePicker plugin -->
+    <%= javascript_include_tag 'bootstrap-datepicker', type: 'text/javascript' %>
 
-  <!--  Charts Plugin -->
-  <%= javascript_include_tag 'bootstrap/chartist.min' %>
+    <!--  Checkbox, Radio & Switch Plugins -->
+    <%= javascript_include_tag 'bootstrap/bootstrap-checkbox-radio' %>
+
+    <!--  Charts Plugin -->
+    <%= javascript_include_tag 'bootstrap/chartist.min' %>
 
     <!--  Notifications Plugin    -->
     <%= javascript_include_tag 'bootstrap/bootstrap-notify' %>
@@ -292,7 +264,7 @@
     <!--  Google Maps Plugin    -->
     <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> -->
 
-  <script type="text/javascript">
+    <script type="text/javascript">
   
     	$(document).ready(function(){
 
@@ -318,6 +290,9 @@
         $(document).on("page:receive", function(){
             $(".spinner").hide();
         });
+
+        $('.date-picker').datepicker();
+    
 	</script>
 
 </html>

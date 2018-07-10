@@ -8,8 +8,6 @@ class DashboardController < ApplicationController
       current_ta = 'Mtema' # to be made dynamic
       total_ta_people = Person.current_district_ta.key([current_district,current_ta]).all.each
       today = Date.today
-      # current_month = Date::MONTHNAMES[today.month]
-      # default_month = current_month
   
       if params[:filter_date].present?
         filter_date = params[:filter_date].to_date
@@ -53,8 +51,8 @@ class DashboardController < ApplicationController
       end
   
       @month_births = ta_month_births.count
-  
-      @births = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
+      @births = get_days_of_month(start_date,end_date)
   
       ta_month_births.each do |new_birth|
         births_index = new_birth["birthdate"].to_date.strftime("%d").to_i
@@ -65,7 +63,7 @@ class DashboardController < ApplicationController
       #========================================================================================================
   
       #=========== news read =======================================================================================
-  
+
       #=============================================================================================================
   
       #=========== new registrations ===============================================================================
@@ -83,7 +81,7 @@ class DashboardController < ApplicationController
   
       @month_registrations = ta_month_registrations.count
       
-      @registrations = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+      @registrations = get_days_of_month(start_date,end_date)
   
       ta_month_registrations.each do |new_registration|
         registrations_index = new_registration["created_at"].to_date.strftime("%d").to_i
@@ -99,5 +97,20 @@ class DashboardController < ApplicationController
     }
 
     @retrieval_time = benchmark_time.real.to_i
+  end
+
+  def get_days_of_month(start_date,end_date)
+    # this method is used to create an array of zeroes from first to last day of the given month
+    start_day = start_date.to_date.day
+    end_day = end_date.to_date.day
+
+    days_of_month = []
+
+    (start_day..end_day).each do |day|
+      days_of_month << 0
+    end
+
+    return days_of_month
+
   end
 end

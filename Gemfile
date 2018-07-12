@@ -6,7 +6,10 @@ git_source(:github) do |repo_name|
 end
 
 # gem for the Gentelella rails Dashboard
-gem 'gentelella-rails'
+#gem 'gentelella-rails'
+
+# ahoy for querying events and visits. - Better implementation should be eventually considered
+gem 'ahoy_matey', '~> 2'
 
 # for rest
 gem 'rest-client', '2.0.1' #'1.6.3'

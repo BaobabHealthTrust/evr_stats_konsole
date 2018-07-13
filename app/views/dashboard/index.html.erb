@@ -175,7 +175,6 @@
                         <div class="footer">
                             <div class="chart-legend">
                                 <i class="fa fa-circle text-info"></i> New Registrations (Total: <%= @total_new_registrations %>)
-                                <i class="fa fa-circle text-warning"></i> Births (Total: <%= @total_births %>)
                             </div>
                             <hr>
                             <div class="stats">
@@ -273,15 +272,14 @@
 
 <script>
     var data = {
-        labels: ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
+        labels: <%= @days_of_month %>,
         series: [
-            <%= @registrations %>,
-            <%= @births %>
+            <%= @registrations %>
         ]
     };
 
 var options = {
-  seriesBarDistance: 15
+  seriesBarDistance: ''
 };
 
 var responsiveOptions = [

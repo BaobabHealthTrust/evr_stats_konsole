@@ -14,3 +14,6 @@ A Statistics monitoring tool for the eVR (Electronic Village Register) Applicati
 # CREDITS
 
 # LICENSE
+Read more on the license in the LICENSE file in the repos root
+                    GNU GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007

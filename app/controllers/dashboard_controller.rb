@@ -34,32 +34,35 @@ class DashboardController < ApplicationController
       #========================================================================================================
   
       #========== births ==================================================================================
-      # start_birthdate = filter_date.beginning_of_month.strftime("%Y/%m/%d")
-      # end_birthdate = filter_date.end_of_month.strftime("%Y/%m/%d")
-      # ta_month_births = []
+      start_birthdate = filter_date.beginning_of_month.strftime("%Y/%m/%d")
+      end_birthdate = filter_date.end_of_month.strftime("%Y/%m/%d")
+      ta_month_births = []
       
-      # (total_ta_people || []).each do |ta_person|
-      #   begin 
-      #     if !ta_person[:birthdate].nil?
-      #       if ta_person[:birthdate].to_date.strftime("%Y/%m/%d") >= start_birthdate && ta_person[:birthdate].to_date.strftime("%Y/%m/%d") <= end_birthdate && ta_person[:birthdate].to_date.strftime("%Y/%m/%d") <= today.strftime("%Y/%m/%d")
-      #         ta_month_births << ta_person
-      #       end
-      #     end
-      #   rescue
-      #     next
-      #   end
-      # end
+      (total_ta_people || []).each do |ta_person|
+        begin 
+          if !ta_person[:birthdate].nil?
+            if ta_person[:birthdate].to_date.strftime("%Y/%m/%d") >= start_birthdate && ta_person[:birthdate].to_date.strftime("%Y/%m/%d") <= end_birthdate && ta_person[:birthdate].to_date.strftime("%Y/%m/%d") <= today.strftime("%Y/%m/%d")
+              ta_month_births << ta_person
+            end
+          end
+        rescue
+          next
+        end
+      end
   
-      # @month_births = ta_month_births.count
+      @month_births = ta_month_births.count
 
-      # @births = get_days_of_month(start_date,end_date)
+      days_of_month = get_days_of_month(start_date,end_date)
+
+      @days_of_month = days_of_month[0]
+      @births = days_of_month[1] 
   
-      # ta_month_births.each do |new_birth|
-      #   births_index = new_birth["birthdate"].to_date.strftime("%d").to_i
-      #   @births[births_index + 1] = @births[births_index + 1] + 1 rescue 0
-      # end
+      ta_month_births.each do |new_birth|
+        births_index = new_birth["birthdate"].to_date.strftime("%d").to_i
+        @births[births_index + 1] = @births[births_index + 1] + 1 rescue 0 # increment one since index starts with 0
+      end
   
-      # @total_births = @births.inject(0){|sum,x| sum + x }
+      @total_births = @births.inject(0){|sum,x| sum + x }
       #========================================================================================================
   
       #=========== news read =======================================================================================

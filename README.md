@@ -1,24 +1,16 @@
-# README
+# EVR STATS KONSOLE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# DESCRIPTION
+A Statistics monitoring tool for the eVR (Electronic Village Register) Application. Includes a dashboard and various reports, in form of charts, tables, and raw data. 
 
-Things you may want to cover:
+# TABLE OF CONTENTS
 
-* Ruby version
+# INSTALLATION
 
-* System dependencies
+# USAGE
 
-* Configuration
+# CONTRIBUTING
 
-* Database creation
+# CREDITS
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# LICENSE

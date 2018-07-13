@@ -59,7 +59,7 @@ class DashboardController < ApplicationController
   
       ta_month_births.each do |new_birth|
         births_index = new_birth["birthdate"].to_date.strftime("%d").to_i
-        @births[births_index + 1] = @births[births_index + 1] + 1 rescue 0
+        @births[births_index + 1] = @births[births_index + 1] + 1 rescue 0 # increment one since index starts with 0
       end
   
       @total_births = @births.inject(0){|sum,x| sum + x }

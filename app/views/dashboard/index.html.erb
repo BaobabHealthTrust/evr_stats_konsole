@@ -139,63 +139,50 @@
             </div>
         </div>
 
-        <!--
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Email Statistics</h4>
-                        <p class="category">Last Campaign Performance</p>
+                        <h4 class="title">
+                            Month Births
+                        </h4>
+                        <p class="category">
+                            Number of people born on a specific day
+                        </p>
                     </div>
                     <div class="content">
-                        <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
-
+                        <div id="newBirths" class="ct-chart"></div>
                         <div class="footer">
                             <div class="chart-legend">
-                                <i class="fa fa-circle text-info"></i> Open
-                                <i class="fa fa-circle text-danger"></i> Bounce
-                                <i class="fa fa-circle text-warning"></i> Unsubscribe
+                                <i class="fa fa-circle text-warning"></i> New Births (Total: <%= @total_births %>)
                             </div>
                             <hr>
                             <div class="stats">
-                                <i class="ti-timer"></i> Campaign sent 2 days ago
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card ">
-                    <div class="header">
-                        <h4 class="title">2015 Sales</h4>
-                        <p class="category">All products including Taxes</p>
-                    </div>
-                    <div class="content">
-                        <div id="chartActivity" class="ct-chart"></div>
-
-                        <div class="footer">
-                            <div class="chart-legend">
-                                <i class="fa fa-circle text-info"></i> Tesla Model S
-                                <i class="fa fa-circle text-warning"></i> BMW 5 Series
-                            </div>
-                            <hr>
-                            <div class="stats">
-                                <i class="ti-check"></i> Data information certified
+                                <i class="ti-reload"></i>
+                                Retrieved in: <%= @retrieval_time %> seconds
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        -->
+
     </div>
 </div>
 
 <script>
-    var data = {
+    
+    var registrations_data = {
         labels: <%= @days_of_month %>,
         series: [
             <%= @registrations %>
+        ]
+    };
+
+    var births_data = {
+        labels: <%= @days_of_month %>,
+        series: [
+            <%= @births %>
         ]
     };
 
@@ -222,5 +209,7 @@
     }]
     ];
 
-    new Chartist.Bar('#newRegistrations', data, options, responsiveOptions);
+    new Chartist.Bar('#newRegistrations', registrations_data, options, responsiveOptions);
+
+    new Chartist.Bar('#newBirths', births_data, options, responsiveOptions);
 </script>

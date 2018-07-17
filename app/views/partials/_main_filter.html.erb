@@ -4,25 +4,25 @@
             <div class="content">
                 <div class="row">
                     <div class="col-xs-5">
-                        <div class="icon-big icon-warning text-center">
-                            Section 1
+                        <div class="numbers">
+                            Select Filter Options:
                         </div>
                     </div>
                     <div class="col-xs-7">
                         <div class="numbers">
                             <i class="ti-filter"></i>
-                            filter form
+                            <input type="text" class='datepicker' >
                         </div>
-                    </div>
-                </div>
-                <div class="footer">
-                    <hr />
-                    <div class="stats">
-                        <i class="ti-reload"></i>
-                        some info:
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      alert('hey');
+    $('.datepicker').datepicker();
+  });
+</script>

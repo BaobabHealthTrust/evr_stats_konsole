@@ -19,7 +19,6 @@ Rails.application.config.assets.precompile += %w( bootstrap/animate.min.css )
 Rails.application.config.assets.precompile += %w( bootstrap/paper-dashboard.css )
 Rails.application.config.assets.precompile += %w( bootstrap/demo.css )
 Rails.application.config.assets.precompile += %w( bootstrap/themify-icons.css )
-Rails.application.config.assets.precompile += %w( datepicker/bootstrap-datepicker.min.css )
 
 # ===== js assets
 Rails.application.config.assets.precompile += %w( bootstrap/jquery-1.10.2.js )
@@ -28,4 +27,3 @@ Rails.application.config.assets.precompile += %w( bootstrap-datepicker.js )
 Rails.application.config.assets.precompile += %w( bootstrap/bootstrap-checkbox-radio.js )
 Rails.application.config.assets.precompile += %w( bootstrap/chartist.min.js )
 Rails.application.config.assets.precompile += %w( bootstrap/bootstrap-notify.js )
-Rails.application.config.assets.precompile += %w( datepicker/bootstrap-datepicker.min.js )

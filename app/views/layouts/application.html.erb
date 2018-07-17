@@ -29,17 +29,9 @@
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag 'bootstrap/themify-icons', rel: 'stylesheet' %>
 
-    <!-- For datepicker -->
-    <%= stylesheet_link_tag 'datepicker/bootstrap-datepicker.min', rel: 'stylesheet' %>
-
-    </style>
-
         <!--   Core JS Files   -->
     <%= javascript_include_tag 'bootstrap/jquery-1.10.2', type: 'text/javascript' %>
     <%= javascript_include_tag 'bootstrap/bootstrap.min', type: 'text/javascript' %>
-
-    <!-- DatePicker plugin -->
-    <%= javascript_include_tag 'datepicker/bootstrap-datepicker.min', type: 'text/javascript' %>
 
     <!--  Checkbox, Radio & Switch Plugins -->
     <%= javascript_include_tag 'bootstrap/bootstrap-checkbox-radio' %>
@@ -52,18 +44,6 @@
 
     <!--  Google Maps Plugin    -->
     <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> -->
-
-    <script type="text/javascript">
-        
-        $(document).on("page:fetch", function(){
-            $(".spinner").show();
-        });
-
-        $(document).on("page:receive", function(){
-            $(".spinner").hide();
-        });
-        
-	</script>
 </head>
 <body>
     <div class="wrapper">

@@ -11,7 +11,12 @@
                     <div class="col-xs-7">
                         <div class="numbers">
                             <i class="ti-filter"></i>
-                            <input type="text" class='datepicker' >
+                            <div class="input-group date">
+                                <input type="text" class="form-control">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-th"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -22,7 +27,6 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-      alert('hey');
     $('.datepicker').datepicker();
   });
 </script>

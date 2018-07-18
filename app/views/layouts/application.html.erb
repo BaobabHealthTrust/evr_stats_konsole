@@ -35,6 +35,19 @@
 </head>
 
 <body>
+
+    <div class="sk-cube-grid" id='cube_loader' style="display: none;">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+    </div>
+
     <div class="wrapper">
 
         <%= render 'partials/sidebar' %>
@@ -48,6 +61,7 @@
         <%= render 'partials/footer' %>
 
     </div>
+
 </body>
 
     <!--   Core JS Files   -->
@@ -72,7 +86,7 @@
     <script type="text/javascript">
         $(function() {
 
-            var start = moment().subtract(29, 'days');
+            var start = moment().startOf('month');
             var end = moment();
 
             function cb(start, end) {
@@ -99,7 +113,8 @@
         $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
             var start_date = $('#reportrange').data('daterangepicker').startDate._d;
             var end_date = $('#reportrange').data('daterangepicker').endDate._d;
-            alert(start_date);
+
+            $('#cube_loader').show();
         })
     </script>    
 

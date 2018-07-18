@@ -111,8 +111,6 @@ class DashboardController < ApplicationController
       #=========== population ======================================================================================
       @total_population = total_ta_people.count
       #=============================================================================================================
-
-      
     }
 
     @retrieval_time = benchmark_time.real.to_i

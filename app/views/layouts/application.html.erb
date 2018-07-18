@@ -115,6 +115,16 @@
             var end_date = $('#reportrange').data('daterangepicker').endDate._d;
 
             $('#cube_loader').show();
+
+            $.post('/',
+                {
+                    start_date: start_date,
+                    end_date: end_date
+                },
+                function(data, status) {
+                    alert("Data: " + data + "\nStatus: " + status);
+                }
+            );
         })
     </script>    
 

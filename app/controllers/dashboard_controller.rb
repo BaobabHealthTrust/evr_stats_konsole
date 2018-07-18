@@ -4,8 +4,8 @@ class DashboardController < ApplicationController
   def index
 
     if request.post?
-      passed_start_date = params[:start_date]
-      passed_end_date = params[:end_date]
+      passed_start_date = params[:start_date].to_date
+      passed_end_date = params[:end_date].to_date
 
       start_date = passed_start_date.strftime("%Y-%m-%d")
       end_date = passed_end_date.strftime("%Y-%m-%d")
@@ -111,6 +111,8 @@ class DashboardController < ApplicationController
       #=========== population ======================================================================================
       @total_population = total_ta_people.count
       #=============================================================================================================
+
+      
     }
 
     @retrieval_time = benchmark_time.real.to_i

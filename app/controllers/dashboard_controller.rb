@@ -111,7 +111,13 @@ class DashboardController < ApplicationController
       #=========== population ======================================================================================
       @total_population = total_ta_people.count
       #=============================================================================================================
+
     }
+
+    respond_to do |format|
+      format.json { render json: [@total_population,@total_new_registrations] }
+      format.html { render status: 200 }
+    end
 
     @retrieval_time = benchmark_time.real.to_i
   end

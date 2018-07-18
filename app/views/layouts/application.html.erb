@@ -116,13 +116,16 @@
 
             $('#cube_loader').show();
 
-            $.post('/',
+            $.get('/',
                 {
                     start_date: start_date,
                     end_date: end_date
                 },
                 function(data, status) {
+                    console.log(data);
                     alert("Data: " + data + "\nStatus: " + status);
+                    $('#cube_loader').hide();
+                    $('#total_population span').text(data[1]);
                 }
             );
         })

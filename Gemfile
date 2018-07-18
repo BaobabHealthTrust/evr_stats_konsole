@@ -8,9 +8,6 @@ end
 # gem for the Gentelella rails Dashboard
 #gem 'gentelella-rails'
 
-# gem for datepicker
-gem 'bootstrap-datepicker-rails'
-
 # ahoy for querying events and visits. - Better implementation should be eventually considered
 gem 'ahoy_matey', '~> 2'
 

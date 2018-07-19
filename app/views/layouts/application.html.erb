@@ -124,12 +124,15 @@
                 function(data, status) {
                     //console.log(data);
                     //alert("Data: " + data + "\nStatus: " + status);
-                    //[@total_population,@total_new_registrations,@today_news_sites,@month_births,@month_deaths,@retrieval_time,@total_births,@registrations,@births]
+                    //[@total_population,@total_new_registrations,@today_news_sites,@month_births,
+                    //@month_deaths,@retrieval_time,@total_births,@registrations,@births]
                     $('#total_population span').text(data[0]);
                     $('#total_new_registrations span').text(data[1]);
-                    $('#today_news_sites span').text(data[2]);
+                    $('#total_news_sites span').text(data[2]);
                     $('#month_births span').text(data[3]);
                     $('#month_deaths span').text(data[4]);
+                    $('.retrieval_time span').text(data[5]);
+                    $('#total_births span').text(data[6]);
                     $('#cube_loader').hide();
                 }
             );

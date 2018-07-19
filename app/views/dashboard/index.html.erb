@@ -74,7 +74,7 @@
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers" id='month_births'>
-                                    <p>People Born This Month</p>
+                                    <p>People Born</p>
                                     <span>
                                         <%= @month_births %>
                                     </span>    
@@ -103,7 +103,7 @@
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers" id='month_deaths'>
-                                    <p>People Died This Month</p>
+                                    <p>People Died</p>
                                     <span>
                                         <%= @month_deaths %>
                                     </span>
@@ -178,9 +178,9 @@
                                 )
                             </div>
                             <hr>
-                            <div class="stats">
+                            <div class="stats retrieval_time">
                                 <i class="ti-reload"></i>
-                                Retrieved in: <%= @retrieval_time %> seconds
+                                Retrieved in: <span><%= @retrieval_time %></span> seconds
                             </div>
                         </div>
                     </div>

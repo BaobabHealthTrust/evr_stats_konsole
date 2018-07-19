@@ -30,8 +30,7 @@ A Statistics monitoring tool for the eVR (Electronic Village Register) Applicati
     https://github.com/BaobabHealthTrust/evr_stats_konsole.git
 
 # INSTALLATION
-
-### Install the gem and all dependent pakages using the following command:
+Install the gem and all dependent pakages using the following command:
 
     bundle
 

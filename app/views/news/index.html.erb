@@ -1,11 +1,18 @@
         <div class="content">
             <div class="container-fluid">
+                
+                <%= render 'partials/main_filter' %>
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Striped Table</h4>
-                                <p class="category">Here is a subtitle for this table</p>
+                                <h4 class="title">
+                                    News Statistics against villages
+                                </h4>
+                                <p class="category">
+                                    This table shows detailed stats on News for every Village. You can click on a particular record to drill down to more stats for it.
+                                </p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
@@ -13,7 +20,7 @@
                                         <th>Count</th>
                                     	<th>Village Name</th>
                                     	<th>Articles Read</th>
-                                    	<th>Sport Articles</th>
+                                    	<th>Sports Articles</th>
                                     	<th>Local News Articles</th>
                                     </thead>
                                     <tbody>

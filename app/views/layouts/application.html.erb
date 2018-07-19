@@ -35,20 +35,20 @@
 </head>
 
 <body>
-
-    <div class="sk-cube-grid" id='cube_loader' style="display: none;">
-        <div class="sk-cube sk-cube1"></div>
-        <div class="sk-cube sk-cube2"></div>
-        <div class="sk-cube sk-cube3"></div>
-        <div class="sk-cube sk-cube4"></div>
-        <div class="sk-cube sk-cube5"></div>
-        <div class="sk-cube sk-cube6"></div>
-        <div class="sk-cube sk-cube7"></div>
-        <div class="sk-cube sk-cube8"></div>
-        <div class="sk-cube sk-cube9"></div>
-    </div>
-
     <div class="wrapper">
+        <div id='cube_loader' style="display: none;">
+            <div class="sk-cube-grid">
+                <div class="sk-cube sk-cube1"></div>
+                <div class="sk-cube sk-cube2"></div>
+                <div class="sk-cube sk-cube3"></div>
+                <div class="sk-cube sk-cube4"></div>
+                <div class="sk-cube sk-cube5"></div>
+                <div class="sk-cube sk-cube6"></div>
+                <div class="sk-cube sk-cube7"></div>
+                <div class="sk-cube sk-cube8"></div>
+                <div class="sk-cube sk-cube9"></div>            
+            </div>        
+        </div>
 
         <%= render 'partials/sidebar' %>
 
@@ -122,9 +122,9 @@
                     end_date: end_date
                 },
                 function(data, status) {
-                    console.log(data);
-                    alert("Data: " + data + "\nStatus: " + status);
-                    [@total_population,@total_new_registrations,@today_news_sites,@month_births,@month_deaths,@retrieval_time,@total_births,@registrations,@births]
+                    //console.log(data);
+                    //alert("Data: " + data + "\nStatus: " + status);
+                    //[@total_population,@total_new_registrations,@today_news_sites,@month_births,@month_deaths,@retrieval_time,@total_births,@registrations,@births]
                     $('#total_population span').text(data[0]);
                     $('#total_new_registrations span').text(data[1]);
                     $('#today_news_sites span').text(data[2]);

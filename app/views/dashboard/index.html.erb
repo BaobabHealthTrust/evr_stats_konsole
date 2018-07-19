@@ -1,5 +1,8 @@
 <div class="content">
     <div class="container-fluid">
+        
+        <%= render 'partials/main_filter' %>
+
         <div class="row">
             <div class="col-lg-3 col-sm-6">
                 <div class="card">
@@ -12,9 +15,11 @@
                                 </div>
                             </div>
                             <div class="col-xs-7">
-                                <div class="numbers">
+                                <div class="numbers" id='total_population'>
                                     <p>Total Population</p>
-                                    <%= @total_population %>
+                                    <span>
+                                        <%= @total_population %>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -39,9 +44,11 @@
                                 </div>
                             </div>
                             <div class="col-xs-7">
-                                <div class="numbers">
+                                <div class="numbers" id='total_news_sites'>
                                     <p>Sites Read News Today</p>
-                                    <%= @today_news_sites %>
+                                    <span>
+                                        <%= @today_news_sites %>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -66,9 +73,11 @@
                                 </div>
                             </div>
                             <div class="col-xs-7">
-                                <div class="numbers">
+                                <div class="numbers" id='month_births'>
                                     <p>People Born This Month</p>
-                                    <%= @month_births %>
+                                    <span>
+                                        <%= @month_births %>
+                                    </span>    
                                 </div>
                             </div>
                         </div>
@@ -93,9 +102,11 @@
                                 </div>
                             </div>
                             <div class="col-xs-7">
-                                <div class="numbers">
+                                <div class="numbers" id='month_deaths'>
                                     <p>People Died This Month</p>
-                                    <%= @month_deaths %>
+                                    <span>
+                                        <%= @month_deaths %>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -125,8 +136,13 @@
                     <div class="content">
                         <div id="newRegistrations" class="ct-chart"></div>
                         <div class="footer">
-                            <div class="chart-legend">
-                                <i class="fa fa-circle text-info"></i> New Registrations (Total: <%= @total_new_registrations %>)
+                            <div class="chart-legend" id='total_new_registrations'>
+                                <i class="fa fa-circle text-info"></i> 
+                                New Registrations (Total: 
+                                <span>
+                                    <%= @total_new_registrations %>
+                                </span>
+                                )
                             </div>
                             <hr>
                             <div class="stats">
@@ -153,8 +169,13 @@
                     <div class="content">
                         <div id="newBirths" class="ct-chart"></div>
                         <div class="footer">
-                            <div class="chart-legend">
-                                <i class="fa fa-circle text-warning"></i> New Births (Total: <%= @total_births %>)
+                            <div class="chart-legend" id='total_births'>
+                                <i class="fa fa-circle text-warning"></i> New Births 
+                                (Total: 
+                                <span>
+                                    <%= @total_births %>
+                                </span>    
+                                )
                             </div>
                             <hr>
                             <div class="stats">
@@ -187,26 +208,26 @@
     };
 
     var options = {
-    seriesBarDistance: ''
+        seriesBarDistance: ''
     };
 
     var responsiveOptions = [
-    ['screen and (min-width: 641px) and (max-width: 1024px)', {
-        seriesBarDistance: 10,
-        axisX: {
-        labelInterpolationFnc: function (value) {
-            return value;
-        }
-        }
-    }],
-    ['screen and (max-width: 640px)', {
-        seriesBarDistance: 5,
-        axisX: {
-        labelInterpolationFnc: function (value) {
-            return value[0];
-        }
-        }
-    }]
+        ['screen and (min-width: 641px) and (max-width: 1024px)', {
+            seriesBarDistance: 10,
+            axisX: {
+            labelInterpolationFnc: function (value) {
+                return value;
+            }
+            }
+        }],
+        ['screen and (max-width: 640px)', {
+            seriesBarDistance: 5,
+            axisX: {
+                labelInterpolationFnc: function (value) {
+                    return value[0];
+                }
+            }
+        }]
     ];
 
     new Chartist.Bar('#newRegistrations', registrations_data, options, responsiveOptions);

@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-lg-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">
+                            Filter Period:
+                        </h4>
+                        <p class="category">
+                            Filter options: Today, Yesterday,
+                        </p>
+                    </div>
+                    <div class="content">
+                        <div>
+                            <!-- Form code begins -->
+                            <form method="post">
+                                <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                    <i class="fa fa-calendar"></i>&nbsp;
+                                    <span></span> <i class="fa fa-caret-down"></i>
+                                </div>
+                            </form>
+                            <!-- Form code ends -->                         
+                        </div>
+                        <div class="footer">
+                            <div class="stats">
+                                <i class="ti-reload"></i>
+                                Retrieved in: <%= @retrieval_time %> seconds
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</div>

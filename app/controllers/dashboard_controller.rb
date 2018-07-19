@@ -3,20 +3,30 @@ require 'benchmark'
 class DashboardController < ApplicationController
   def index
 
+    if request.post?
+      passed_start_date = params[:start_date].to_date
+      passed_end_date = params[:end_date].to_date
+
+      start_date = passed_start_date.strftime("%Y-%m-%d")
+      end_date = passed_end_date.strftime("%Y-%m-%d")
+
+      start_birthdate = passed_end_date.strftime("%Y/%m/%d")
+      end_birthdate = passed_end_date.strftime("%Y/%m/%d")   
+    end
+
     benchmark_time = Benchmark.measure {
       current_district = 'Lilongwe' # to be made dynamic
       current_ta = 'Mtema' # to be made dynamic
       total_ta_people = Person.current_district_ta.key([current_district,current_ta]).all.each
       today = Date.today
-  
-      if params[:filter_date].present?
-        filter_date = params[:filter_date].to_date
-      else
-        filter_date = today
-      end
-  
+
+      filter_date = today
+
       start_date = filter_date.beginning_of_month.strftime("%Y-%m-%d")
       end_date = filter_date.end_of_month.strftime("%Y-%m-%d")
+
+      start_birthdate = filter_date.beginning_of_month.strftime("%Y/%m/%d")
+      end_birthdate = filter_date.end_of_month.strftime("%Y/%m/%d")
   
       #========= deaths =====================================================================================
       outcome = Outcome.by_outcome_date.all
@@ -34,8 +44,6 @@ class DashboardController < ApplicationController
       #========================================================================================================
   
       #========== births ==================================================================================
-      start_birthdate = filter_date.beginning_of_month.strftime("%Y/%m/%d")
-      end_birthdate = filter_date.end_of_month.strftime("%Y/%m/%d")
       ta_month_births = []
       
       (total_ta_people || []).each do |ta_person|
@@ -103,9 +111,16 @@ class DashboardController < ApplicationController
       #=========== population ======================================================================================
       @total_population = total_ta_people.count
       #=============================================================================================================
+
     }
 
     @retrieval_time = benchmark_time.real.to_i
+
+    respond_to do |format|
+      format.json { render json: [@total_population,@total_new_registrations,@today_news_sites,@month_births,@month_deaths,@retrieval_time,@total_births,@registrations,@births] }
+      format.html { render status: 200 }
+    end
+    
   end
 
   def get_days_of_month(start_date,end_date)

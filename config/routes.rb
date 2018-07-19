@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  get 'news/index'
+
   get 'landing/index'
+  post '/', to: 'landing#index'
 
   get 'dashboard/index'
 

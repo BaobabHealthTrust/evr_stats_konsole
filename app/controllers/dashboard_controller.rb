@@ -117,7 +117,7 @@ class DashboardController < ApplicationController
     @retrieval_time = benchmark_time.real.to_i
 
     respond_to do |format|
-      format.json { render json: [@total_population,@total_new_registrations] }
+      format.json { render json: [@total_population,@total_new_registrations,@today_news_sites,@month_births,@month_deaths,@retrieval_time,@total_births,@registrations,@births] }
       format.html { render status: 200 }
     end
     

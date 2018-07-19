@@ -7,11 +7,41 @@ A Statistics monitoring tool for the eVR (Electronic Village Register) Applicati
 
 # TABLE OF CONTENTS
 
+# DEPENDENCIES
+
+## Ruby
+
+    version 2.50p0 +
+
+## Rails
+
+    versions 5.1.6 +
+
+# SETTING UP
+
+## Clone the repository from github
+
+### SSH:
+
+    git@github.com:BaobabHealthTrust/evr_stats_konsole.git
+
+### HTTPS:
+
+    https://github.com/BaobabHealthTrust/evr_stats_konsole.git
+
 # INSTALLATION
+
+### Install the gem and all dependent pakages using the following command:
+
+    bundle
 
 # USAGE
 
 # CONTRIBUTING
+
+### For contributors and contributing stats follow the link below:
+
+https://github.com/BaobabHealthTrust/evr_stats_konsole/graphs/contributors
 
 # CREDITS
 

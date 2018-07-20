@@ -93,6 +93,7 @@ class DashboardController < ApplicationController
         end
       end
   
+      #TODO
       @month_registrations = ta_month_registrations.count
       
       days_of_month = get_days_of_month(start_date,end_date)

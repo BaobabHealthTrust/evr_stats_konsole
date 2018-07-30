@@ -36,6 +36,26 @@ Install the gem and all dependent pakages using the following command:
 
 # USAGE
 
+Copy the couchdb configuration example file to a new file and make your configurations. Copy by using the command below:
+
+    cp config/couchdb.yml.example config/couchdb.yml
+
+### Run the Application
+
+Run the application to use it, by running any of the following commands:
+
+##### Using Passenger
+
+    passenger start
+
+##### Using Puma
+
+    rails s
+
+Open a web browser and access the link below
+
+    localhost:3000    
+
 # CONTRIBUTING
 
 ### For contributors and contributing stats follow the link below:

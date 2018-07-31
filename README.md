@@ -36,7 +36,7 @@ Install the gem and all dependent pakages using the following command:
 
 # USAGE
 
-Copy the couchdb configuration example file to a new file and make your configurations. Copy by using the command below:
+Copy the couchdb configuration example file to a new file and make your configurations point to the EVR couchdb. Copy by using the command below:
 
     cp config/couchdb.yml.example config/couchdb.yml
 

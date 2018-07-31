@@ -24,20 +24,51 @@
                                     	<th>Local News Articles</th>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                        	<td>1</td>
-                                        	<td>Biwi</td>
-                                        	<td>5</td>
-                                        	<td>2</td>
-                                        	<td>3</td>
-                                        </tr>
+                                        <%# raise @news_articles.last.properties.inspect %>
+                                        <% (@news_sites || []).each_with_index do |news_site, index| %>
+                                            <tr>
+                                                <td>
+                                                    <%= index + 1 %>
+                                                </td>
+                                                <td>
+                                                    <%= news_site.ip %>
+                                                </td>
+                                                <%
+                                                    articles_read = 0
+                                                    sports_articles = 0
+                                                    local_news_articles = 0
+                                                %>
+                                                <% (@news_articles || []).each do |news_article|
+                                                    article_properties = eval(news_article.properties)
+                                                    if news_article.visit_id == news_site.id && news_article.name == 'Viewed article'
+                                                        articles_read += 1
+
+                                                        article_category = article_properties['category']
+                                                        
+                                                        case article_category
+                                                        when 'sports_news'
+                                                            sports_articles += 1
+                                                        when 'local_news' 
+                                                            local_news_articles += 1
+                                                        end
+                                                    end  
+                                                end %>
+                                                <td>
+                                                    <%= articles_read %>
+                                                </td>
+                                                <td>
+                                                    <%= sports_articles %>
+                                                </td>
+                                                <td>
+                                                    <%= local_news_articles %>
+                                                </td>
+                                            </tr>
+                                        <% end %>
                                     </tbody>
                                 </table>
-
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -1,0 +1,2 @@
+class SiteDetail < ApplicationRecord
+end

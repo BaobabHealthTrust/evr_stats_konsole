@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+sites = [
+    ['localhost','127.0.0.1']
+]
+
+(sites || []).each do |site|
+    site_detail = SiteDetail.new()
+    site_detail.site_name = site[0]
+    site_detail.site_ip = site[1]
+
+    site_detail.save!
+end

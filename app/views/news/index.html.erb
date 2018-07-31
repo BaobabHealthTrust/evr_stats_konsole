@@ -30,10 +30,14 @@
                                                 <td>
                                                     <%= index + 1 %>
                                                 </td>
+                                                <% (@site_details || []).each do |site_detail|
+                                                    if site_detail.site_ip == news_site.ip %>
                                                 <td>
-                                                    <%= news_site.ip %>
+                                                    <%= site_detail.site_name %>
                                                 </td>
-                                                <%
+                                                <% 
+                                                    end
+                                                end    
                                                     articles_read = 0
                                                     sports_articles = 0
                                                     local_news_articles = 0

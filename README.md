@@ -3,7 +3,7 @@
 # EVR STATS KONSOLE
 
 # DESCRIPTION
-A Statistics monitoring tool for the eVR (Electronic Village Register) Application. Includes a dashboard and various reports, in form of charts, tables, and raw data. 
+A Statistics monitoring tool for the eVR (Electronic Village Register) Application. Includes a dashboard and various reports, in form of charts, tables, and raw data.
 
 # TABLE OF CONTENTS
 
@@ -39,6 +39,26 @@ Install the gem and all dependent pakages using the following command:
 Copy the couchdb configuration example file to a new file and make your configurations point to the EVR couchdb. Copy by using the command below:
 
     cp config/couchdb.yml.example config/couchdb.yml
+
+What to configure in the couchdb.yml file:
+
+    protocol: 'http'
+    host: localhost
+    port: 5984
+    prefix: dde
+    suffix: production_mtema_17
+    username: couchdb_username
+    password: couchdb_password
+
+    Make sure the prefix and suffix spell out the evr_database_name you would like to pull statistics from. In this case the database name in couchdb would spell as "dde_production_mtema_17" [prefix_suffix]
+
+Copy the database configuration example file to a new file and make your configurations point to the EVR news_app dashboard. Copy by using the command below:
+
+    cp config/database.yml.example config/database.yml  
+
+### Extras
+
+To track news statistics, make sure you have an instance of EVR (VillageListing running, in case not up to date, run it in the branch "ahoy_plugin")      
 
 ### Run the Application
 

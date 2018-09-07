@@ -1,6 +1,6 @@
 <div class="content">
     <div class="container-fluid">
-        
+
         <%= render 'partials/main_filter' %>
 
         <div class="row">
@@ -44,7 +44,7 @@
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers" id='total_news_sites'>
-                                    <p>Sites Read News Today</p>
+                                    <p>Sites that Read News Today</p>
                                     <span>
                                         <%= @today_news_sites %>
                                     </span>
@@ -54,7 +54,7 @@
                         <div class="footer">
                             <hr />
                             <div class="stats">
-                                <i class="ti-calendar"></i> 
+                                <i class="ti-calendar"></i>
                                 Retrieved in: <%= @retrieval_time %> seconds
                             </div>
                         </div>
@@ -73,10 +73,16 @@
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers" id='month_births'>
-                                    <p>People Born</p>
+                                    <p>
+                                      <% if @month_births.to_i == 1 %>
+                                        Birth
+                                      <% else %>
+                                        Births
+                                      <% end %>
+                                    </p>
                                     <span>
                                         <%= @month_births %>
-                                    </span>    
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +108,13 @@
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers" id='month_deaths'>
-                                    <p>People Died</p>
+                                  <p>
+                                    <% if @month_deaths.to_i == 1 %>
+                                      Death
+                                    <% else %>
+                                      Deaths
+                                    <% end %>
+                                  </p>
                                     <span>
                                         <%= @month_deaths %>
                                     </span>
@@ -136,8 +148,8 @@
                         <div id="newRegistrations" class="ct-chart"></div>
                         <div class="footer">
                             <div class="chart-legend" id='total_new_registrations'>
-                                <i class="fa fa-circle text-info"></i> 
-                                New Registrations (Total: 
+                                <i class="fa fa-circle text-info"></i>
+                                New Registrations (Total:
                                 <span>
                                     <%= @total_new_registrations %>
                                 </span>
@@ -169,11 +181,11 @@
                         <div id="newBirths" class="ct-chart"></div>
                         <div class="footer">
                             <div class="chart-legend" id='total_births'>
-                                <i class="fa fa-circle text-warning"></i> New Births 
-                                (Total: 
+                                <i class="fa fa-circle text-warning"></i> New Births
+                                (Total:
                                 <span>
                                     <%= @total_births %>
-                                </span>    
+                                </span>
                                 )
                             </div>
                             <hr>
@@ -191,7 +203,7 @@
 </div>
 
 <script>
-    
+
     var registrations_data = {
         labels: <%= @days_of_month %>,
         series: [
